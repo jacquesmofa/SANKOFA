@@ -13,8 +13,7 @@ site folder `/home3/irineashu/sankofaroyaleaward.ca`.
 - Full owner steps: `docs/DEPLOY.md`.
 
 ## Status (10 Nov 2026)
-- Live domain still serves the OLD WordPress/Elementor site. This React site goes live only when
-  `DEPLOY_TARGET=production` is set (after a cPanel backup).
+- LIVE since 11 Nov 2026 01:00 (DEPLOY_TARGET=production). The old WordPress site had already been removed from HostGator (folder was empty, "Sankofa Royale Award" gone from the HostGator Websites list); no backup found (trash empty, CodeGuard inactive).
 - Content is stale: gala date 2026-08-09 (`src/pages/home/components/HeroSection.tsx`) has passed, so the countdown shows 00.
 - Content is still hard-coded in components/mocks; not yet converted to editable `src/content/` JSON
   (CAWAP pattern: Pages CMS + Sveltia at /admin).

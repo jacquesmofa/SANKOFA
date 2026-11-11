@@ -127,7 +127,7 @@ jobs:
               # a deep link must also load (React routing works)
               curl -fsS -o /dev/null "${URL}tickets" && echo "✅ deep link ${URL}tickets loads"
               # the main site must still answer, whatever was deployed
-              CODE=$(curl -s -o /dev/null -w '%{http_code}' -A 'Mozilla/5.0' "$SITE_URL/")
+              CODE=$(curl -s -o /dev/null -w '%{http_code}' "$SITE_URL/")
               echo "Main site $SITE_URL/ answers HTTP $CODE" | tee -a "$GITHUB_STEP_SUMMARY"
               [ "$CODE" = "200" ] || { echo "::error::Main site $SITE_URL/ answers HTTP $CODE"; exit 1; }
               exit 0
