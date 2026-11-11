@@ -1,7 +1,7 @@
 name: asset sheets (temporary)
 on:
   push:
-    branches: [tools-contact-sheet]
+    branches: [tools-assets]
 permissions:
   contents: write
 jobs:
