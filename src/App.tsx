@@ -14,7 +14,10 @@ import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  useEffect(() => {
+    // braces matter: newer browsers make scrollTo return a Promise, which React must not receive as a cleanup
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
