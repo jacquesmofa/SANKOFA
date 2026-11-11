@@ -123,6 +123,10 @@ jobs:
               echo "✅ Live check passed: $URL" >> "$GITHUB_STEP_SUMMARY"
               # a deep link must also load (React routing works)
               curl -fsS -o /dev/null "${URL}tickets" && echo "✅ deep link ${URL}tickets loads"
+              # the main site must still answer, whatever was deployed
+              CODE=$(curl -s -o /dev/null -w '%{http_code}' -A 'Mozilla/5.0' "$SITE_URL/")
+              echo "Main site $SITE_URL/ answers HTTP $CODE" | tee -a "$GITHUB_STEP_SUMMARY"
+              [ "$CODE" = "200" ] || { echo "::error::Main site $SITE_URL/ answers HTTP $CODE"; exit 1; }
               exit 0
             fi
             echo "Not visible yet, retrying in 10s ($i/6)"; sleep 10
