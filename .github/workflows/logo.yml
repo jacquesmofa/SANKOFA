@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: |
+          set +e
           mkdir -p found
           C="https://web.archive.org/cdx/search/cdx"
           curl -s "$C?url=sankofaroyaleaward.ca&output=txt&filter=statuscode:200&fl=timestamp,original&collapse=digest&limit=50" > found/home_snapshots.txt
