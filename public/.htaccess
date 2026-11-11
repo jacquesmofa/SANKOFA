@@ -1,0 +1,41 @@
+# Sankofa Royale Award — HostGator (Apache) settings for the React site.
+# The deploy workflow rewrites RewriteBase and the fallback path for the /preview/ build.
+
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Always use https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Real files and folders are served as they are
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Every other address is a page of the React app
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Built files have a fingerprint in their name, so they can be cached for a year
+  <FilesMatch "^index-.*\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # The page itself is always re-checked, so a new deploy shows up immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Source maps are for debugging only
+  <FilesMatch "\.map$">
+    Require all denied
+  </FilesMatch>
+</IfModule>

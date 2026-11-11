@@ -1,0 +1,121 @@
+name: 🚀 Build and Deploy — Sankofa Royale Award
+
+# How it works (plain words):
+# - Every change pushed to main is built. If the build fails, nothing is uploaded.
+# - Where it goes depends on the repo variable DEPLOY_TARGET:
+#     preview    (default) -> https://sankofaroyaleaward.ca/preview/   (hidden from Google)
+#     production           -> https://sankofaroyaleaward.ca/           (the live site)
+# - "Run workflow" (Actions tab) lets you pick preview or production by hand.
+# - After uploading, the workflow opens the site and checks the new version is really there.
+# - Pull requests are only built (a safety check), never uploaded.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Where to publish
+        type: choice
+        options: [default, preview, production]
+        default: default
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false # queue back-to-back saves instead of cutting an upload short
+
+env:
+  SITE_URL: ${{ vars.SITE_URL || 'https://sankofaroyaleaward.ca' }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🎯 Decide where this goes
+        id: target
+        run: |
+          T="${{ github.event.inputs.target }}"
+          if [ -z "$T" ] || [ "$T" = "default" ]; then T="${{ vars.DEPLOY_TARGET || 'preview' }}"; fi
+          if [ "${{ github.event_name }}" = "pull_request" ]; then T="none"; fi
+          case "$T" in
+            production) echo "base=/" >> "$GITHUB_OUTPUT"; echo "dir=./" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/" >> "$GITHUB_OUTPUT" ;;
+            preview)    echo "base=/preview/" >> "$GITHUB_OUTPUT"; echo "dir=./preview/" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/preview/" >> "$GITHUB_OUTPUT" ;;
+            none)       echo "base=/" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::DEPLOY_TARGET must be preview or production (got '$T')"; exit 1 ;;
+          esac
+          echo "target=$T" >> "$GITHUB_OUTPUT"
+          echo "### Target: \`$T\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 📦 Install exact dependency versions
+        run: npm ci
+
+      - name: 🔨 Build
+        env:
+          BASE_PATH: ${{ steps.target.outputs.base }}
+        run: npm run build
+
+      - name: 🙈 Preview only — point routing at /preview/ and hide it from Google
+        if: steps.target.outputs.target == 'preview'
+        run: |
+          sed -i 's#RewriteBase /#RewriteBase /preview/#; s#RewriteRule \^ /index.html#RewriteRule ^ /preview/index.html#' out/.htaccess
+          printf '\n<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n' >> out/.htaccess
+          cat out/.htaccess | grep -n "preview\|Robots"
+
+      - name: 🔐 Check FTP secrets are set
+        id: secrets
+        if: steps.target.outputs.target != 'none'
+        env:
+          S: ${{ secrets.FTP_SERVER }}
+          U: ${{ secrets.FTP_USERNAME }}
+          P: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -z "$S" ] || [ -z "$U" ] || [ -z "$P" ]; then
+            echo "::warning::FTP secrets are not set yet — the build passed but nothing was uploaded. See docs/DEPLOY.md."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            case "$S" in *://*|*/*) echo "::error::FTP_SERVER must be only the host name, e.g. gator3095.hostgator.com (no ftp://, no folder)"; exit 1;; esac
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 📂 Upload to HostGator
+        if: steps.secrets.outputs.ok == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }} # set repo variable FTP_PROTOCOL=ftp only if ftps fails
+          local-dir: ./out/
+          # The FTP account's home must be the site's folder (/home3/irineashu/sankofaroyaleaward.ca)
+          server-dir: ${{ steps.target.outputs.dir }}
+          exclude: |
+            **/*.map
+
+      - name: ✅ Check the new version is live
+        if: steps.secrets.outputs.ok == 'true'
+        run: |
+          ASSET=$(grep -o 'assets/index-[^"]*\.js' out/index.html | head -1)
+          URL="${{ steps.target.outputs.url }}"
+          for i in 1 2 3 4 5 6; do
+            if curl -fsSL -H 'Cache-Control: no-cache' "$URL?v=${GITHUB_SHA::7}" | grep -q "$ASSET"; then
+              echo "✅ $URL is serving this build ($ASSET)"
+              echo "✅ Live check passed: $URL" >> "$GITHUB_STEP_SUMMARY"
+              # a deep link must also load (React routing works)
+              curl -fsS -o /dev/null "${URL}tickets" && echo "✅ deep link ${URL}tickets loads"
+              exit 0
+            fi
+            echo "Not visible yet, retrying in 10s ($i/6)"; sleep 10
+          done
+          echo "::error::Uploaded, but $URL does not show the new build. Check the FTP account's folder (docs/DEPLOY.md, step 1)."
+          exit 1
