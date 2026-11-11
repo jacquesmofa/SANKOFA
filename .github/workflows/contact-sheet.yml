@@ -1,0 +1,40 @@
+name: asset sheets (temporary)
+on:
+  push:
+    branches: [tools-contact-sheet]
+permissions:
+  contents: write
+jobs:
+  sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: sudo apt-get install -y -qq imagemagick ffmpeg >/dev/null
+      - run: |
+          set +e
+          mkdir -p thumbs sheets
+          python3 - <<'PY'
+          import json,subprocess
+          al=json.load(open('.tools/assets.json')); info=[]
+          for site,items in al.items():
+              for i,a in enumerate(items):
+                  u=a["url"]
+                  if a["type"]=="image":
+                      t=u.replace("/image/upload/","/image/upload/w_360,q_70/")
+                      subprocess.run(["curl","-sfL","-o",f"thumbs/{site}__{i:02d}.jpg",t])
+                  else:
+                      p=subprocess.run(["ffprobe","-v","error","-show_entries","format=duration:stream=width,height,codec_type","-of","json",u],capture_output=True,text=True).stdout
+                      info.append({"site":site,"i":i,"url":u,"probe":json.loads(p or "{}")})
+                      for j,pos in enumerate(["5p","40p","80p"]):
+                          t=u.replace("/video/upload/",f"/video/upload/so_{pos},w_360,q_70/").replace(".mp4",".jpg")
+                          subprocess.run(["curl","-sfL","-o",f"thumbs/{site}__{i:02d}v{j}.jpg",t])
+          json.dump(info,open("sheets/videos.json","w"),indent=1)
+          PY
+          identify -format "%f %w %h\n" thumbs/*.jpg > sheets/dims.txt
+          for s in crowned nnaya yofoam nccsd cawap; do
+            montage -label '%t' -font DejaVu-Sans -pointsize 14 thumbs/${s}__*.jpg -tile 6x -geometry 230x230+4+4 -background '#222' -fill white sheets/${s}.jpg
+          done
+          ls -la sheets
+      - run: |
+          git config user.name ci; git config user.email ci@example.com
+          git add sheets && git commit -qm "sheets [skip ci]" && git push -q
