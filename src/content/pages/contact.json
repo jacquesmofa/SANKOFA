@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "eyebrow": "Contact & Sponsorship",
+    "heading": "Let's talk",
+    "intro": "Tickets, tables, nominations, sponsorship or media — our team is happy to help.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312876/VIKI8741_ugimyk.jpg"
+  },
+  "sponsorship": {
+    "heading": "Sponsor the Sankofa Royale Awards",
+    "body": "Put your organisation alongside an evening that celebrates Black excellence and funds real community programs. Sponsorships can include an honouree award, a table, the red carpet or the photo experience — we will shape a package that fits your goals.",
+    "points": [
+      "Recognition on stage and in event materials",
+      "Tables for your team and guests",
+      "Visibility with community, business and civic leaders",
+      "A direct contribution to CAWAP's programs"
+    ]
+  },
+  "form": {
+    "heading": "Send us a message",
+    "topics": [
+      "Tickets & tables",
+      "Nominations",
+      "Sponsorship",
+      "Media & press",
+      "Volunteering",
+      "Other"
+    ],
+    "successMessage": "Thank you — your message has been sent. We will get back to you shortly."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "eyebrow": "The Gala Night",
+    "heading": "An evening dressed in gold",
+    "intro": "The Sankofa Royale gala is a fundraising celebration in the grand tradition: a red carpet, live local artists, African cuisine and a ceremony that puts our community's achievers in the spotlight.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312775/VIKI7478_elddoi.jpg"
+  },
+  "intro": {
+    "heading": "More than an awards show",
+    "body": "The evening brings together honourees, their families, community and faith leaders, entrepreneurs, elected officials and friends of CAWAP. It is a night to dress in your finest traditional attire, to applaud people who rarely ask for applause, and to invest — through every ticket and contribution — in the programs that keep families fed, youth engaged and women empowered.\n\nGuests are warmly invited to contribute to the project and its future work. Every gift goes further than one night."
+  },
+  "moments": [
+    {
+      "time": "Arrival",
+      "title": "Limousines & the red carpet",
+      "text": "Honourees and guests are welcomed at the door and step onto the red carpet, where photographers and videographers capture every entrance.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312899/VIKI7399_boww5k.jpg"
+    },
+    {
+      "time": "Welcome",
+      "title": "Reception & seating",
+      "text": "Guests are seated at tables dressed in black and gold. Hosts open the evening and introduce the theme of the year.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312779/VIKI7526_ptxlpq.jpg"
+    },
+    {
+      "time": "Dinner",
+      "title": "A taste of the continent",
+      "text": "An African dining experience, from the single-ticket table to the VVIP and Platinum tables with fine wine and premium pairings.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312780/VIKI7548_f4zrym.jpg"
+    },
+    {
+      "time": "Ceremony",
+      "title": "The Sankofa Royale Awards",
+      "text": "Category by category, honourees are called to the stage to receive their award and certificate before the community.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312818/VIKI7969_sow9et.jpg"
+    },
+    {
+      "time": "Celebration",
+      "title": "Performances & dancing",
+      "text": "Live local artists, music and dancing carry the evening late into the night — with plenty of time for photos.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312888/VIKI8912_1_ad9cvo.jpg"
+    }
+  ],
+  "details": {
+    "heading": "Evening essentials",
+    "items": [
+      {
+        "label": "Dress code",
+        "value": "Formal traditional attire — wear your heritage proudly. Black tie is also welcome."
+      },
+      {
+        "label": "Time",
+        "value": "Doors from 5:00 PM; the celebration runs until midnight."
+      },
+      {
+        "label": "Photos",
+        "value": "A paparazzi-style photo experience is included for nominees and guests."
+      },
+      {
+        "label": "Contributions",
+        "value": "Guests may contribute to support CAWAP's community programs."
+      }
+    ]
+  },
+  "attire": {
+    "heading": "The royal dress code",
+    "body": "Kente, aso-oke, agbada, boubou, kitenge, sari-inspired silks, sharp tuxedos — the Sankofa Royale red carpet is a celebration of the diaspora's style. Come as royalty.",
+    "images": [
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312893/VIKI7189_b6f8j3.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316115/sankofa-2023-2_cf9oxy.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312836/VIKI8089_2_e2uxru.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313832/VIKI7991_nxn53i.jpg"
+    ]
+  }
+}

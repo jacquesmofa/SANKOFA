@@ -1,0 +1,130 @@
+{
+  "hero": {
+    "eyebrow": "Nomination Desk",
+    "heading": "Honour someone who lifts others",
+    "intro": "Do you know someone who inspires, builds, serves or excels? Put their name forward for a Sankofa Royale Award.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313781/VIKI8846_drnuch.jpg"
+  },
+  "categoriesHeading": "Award categories",
+  "categoriesIntro": "Nominees are considered across nineteen categories. Choose the one that best reflects the impact of the person or organisation you are nominating.",
+  "categories": [
+    {
+      "name": "Community Leadership Award",
+      "description": "Promotes community unity, equity and inclusivity."
+    },
+    {
+      "name": "Cultural Diversity & Inclusion",
+      "description": "Champions diversity, breaks barriers and celebrates heritage."
+    },
+    {
+      "name": "Humanitarian & Volunteer Service",
+      "description": "Celebrates selfless dedication to improving lives through volunteering."
+    },
+    {
+      "name": "Women Empowerment Award",
+      "description": "Honours women leaders championing equity and opportunity for others."
+    },
+    {
+      "name": "Youth Leadership Award",
+      "description": "Spotlights young people who show vision, initiative and courage."
+    },
+    {
+      "name": "Education & Mentorship",
+      "description": "Honours those shaping the future through teaching and guidance."
+    },
+    {
+      "name": "Entrepreneurship & Business",
+      "description": "Celebrates innovation, resilience and integrity in business."
+    },
+    {
+      "name": "Faith & Community Service",
+      "description": "Recognises service rooted in faith that brings hope to the community."
+    },
+    {
+      "name": "Non-Profit Leadership Award",
+      "description": "Honours visionary leadership driving change in the non-profit sector."
+    },
+    {
+      "name": "Corporate Social Responsibility",
+      "description": "Celebrates businesses that lead with purpose and reinvest locally."
+    },
+    {
+      "name": "Global Community Impact",
+      "description": "Honours work whose positive effect reaches across borders."
+    },
+    {
+      "name": "Lifetime Achievement Award",
+      "description": "Celebrates a lifetime of leadership, legacy and exceptional impact."
+    },
+    {
+      "name": "Health & Wellness Award",
+      "description": "Honours people and groups promoting holistic community wellness."
+    },
+    {
+      "name": "Accessibility & Disability Inclusion",
+      "description": "Celebrates advocates for equity and empowerment for people with disabilities."
+    },
+    {
+      "name": "Human Trafficking Prevention",
+      "description": "Honours advocacy that combats exploitation and protects survivors."
+    },
+    {
+      "name": "Arts, Culture & Heritage",
+      "description": "Spotlights artists and keepers of tradition who keep our heritage vibrant."
+    },
+    {
+      "name": "Public Service",
+      "description": "Honours public servants who lead with civic duty and integrity."
+    },
+    {
+      "name": "Environmental Stewardship",
+      "description": "Recognises sustainable initiatives that protect our environment."
+    },
+    {
+      "name": "Emerging Leader",
+      "description": "Celebrates newcomers showing early promise of great impact."
+    }
+  ],
+  "steps": {
+    "heading": "How to nominate",
+    "items": [
+      {
+        "title": "Choose a category",
+        "text": "Pick the category that best matches your nominee's contribution."
+      },
+      {
+        "title": "Tell their story",
+        "text": "Share your name, phone and email, then a short statement of what your nominee has achieved and who has benefited."
+      },
+      {
+        "title": "Submit the form",
+        "text": "Send the nomination through our secure online form. You can nominate more than one person."
+      },
+      {
+        "title": "Review & celebration",
+        "text": "The committee reviews every nomination. Honourees are contacted before the gala and celebrated on stage."
+      }
+    ]
+  },
+  "criteria": {
+    "heading": "What the committee looks for",
+    "items": [
+      "Measurable, lasting impact on people and communities",
+      "Service beyond personal or commercial gain",
+      "Integrity, leadership and the respect of peers",
+      "Work that represents and uplifts Black and African communities"
+    ]
+  },
+  "formButtonLabel": "Open the nomination form",
+  "honourRoll": {
+    "heading": "2024 nominees",
+    "body": "Last year's nominees came from every corner of our community. Browse their portraits in the gallery.",
+    "images": [
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316134/Nominees-2024-1_pcqv63.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316085/Nominees-2024-9_q439zs.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316099/Nominees-2024-25_bckjou.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316110/Nominees-2024-40_amhmtt.jpg"
+    ],
+    "link": "/gallery/nominees-2024"
+  }
+}

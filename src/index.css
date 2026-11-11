@@ -1,232 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background-50: 0.97 0.01 95;
-    --background-100: 0.94 0.01 95;
-    --background-200: 0.88 0.01 95;
-    --background-300: 0.80 0.01 95;
-    --background-400: 0.70 0.01 95;
-    --background-500: 0.60 0.01 95;
-    --background-600: 0.50 0.01 95;
-    --background-700: 0.40 0.01 95;
-    --background-800: 0.30 0.01 95;
-    --background-900: 0.20 0.01 95;
-    --background-950: 0.05 0 0;
-
-    --primary-50: 0.95 0.05 85;
-    --primary-100: 0.90 0.08 85;
-    --primary-200: 0.85 0.10 85;
-    --primary-300: 0.80 0.12 85;
-    --primary-400: 0.76 0.14 85;
-    --primary-500: 0.72 0.16 85;
-    --primary-600: 0.65 0.14 85;
-    --primary-700: 0.55 0.12 85;
-    --primary-800: 0.45 0.10 85;
-    --primary-900: 0.35 0.08 85;
-    --primary-950: 0.25 0.06 85;
-
-    --accent-50: 0.95 0.06 15;
-    --accent-100: 0.90 0.10 15;
-    --accent-200: 0.85 0.13 15;
-    --accent-300: 0.80 0.16 15;
-    --accent-400: 0.75 0.18 15;
-    --accent-500: 0.70 0.18 15;
-    --accent-600: 0.62 0.16 15;
-    --accent-700: 0.54 0.14 15;
-    --accent-800: 0.46 0.12 15;
-    --accent-900: 0.38 0.10 15;
-    --accent-950: 0.30 0.08 15;
-
-    --secondary-50: 0.95 0.04 310;
-    --secondary-100: 0.88 0.06 310;
-    --secondary-200: 0.80 0.08 310;
-    --secondary-300: 0.72 0.10 310;
-    --secondary-400: 0.64 0.12 310;
-    --secondary-500: 0.56 0.14 310;
-    --secondary-600: 0.48 0.12 310;
-    --secondary-700: 0.40 0.10 310;
-    --secondary-800: 0.32 0.08 310;
-    --secondary-900: 0.24 0.06 310;
-    --secondary-950: 0.16 0.04 310;
-
-    --foreground-50: 0.97 0.01 95;
-    --foreground-100: 0.94 0.01 95;
-    --foreground-200: 0.90 0.01 95;
-    --foreground-300: 0.85 0.01 95;
-    --foreground-400: 0.80 0.01 95;
-    --foreground-500: 0.70 0.01 95;
-    --foreground-600: 0.60 0.02 95;
-    --foreground-700: 0.50 0.02 95;
-    --foreground-800: 0.40 0.02 95;
-    --foreground-900: 0.30 0.02 95;
-    --foreground-950: 0.15 0.01 95;
-
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-label: 'DM Sans', sans-serif;
-  }
-
-  body {
-    font-family: var(--font-body);
-    background-color: oklch(var(--background-950));
-    color: oklch(var(--foreground-50));
+  html {
+    background: #0f0c0b;
+    color: #f3ebdd;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+  body {
+    @apply bg-ink font-sans text-ivory;
   }
-}
-
-@layer components {
-  .glass-card {
-    background: rgba(11, 11, 12, 0.6);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 0.5px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
+  ::selection {
+    background: #c8a253;
+    color: #0f0c0b;
   }
-
-  .glass-card-strong {
-    background: rgba(11, 11, 12, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 0.5px solid rgba(212, 175, 55, 0.35);
-    border-radius: 12px;
+  summary::-webkit-details-marker {
+    display: none;
   }
-
-  .glass-nav {
-    background: rgba(11, 11, 12, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 0.5px solid rgba(212, 175, 55, 0.15);
-  }
-
-  .gold-border {
-    border: 0.5px solid rgba(212, 175, 55, 0.35);
-  }
-
-  .gold-border-subtle {
-    border: 0.5px solid rgba(212, 175, 55, 0.15);
-  }
-
-  .gold-shimmer {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .gold-shimmer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(212, 175, 55, 0.15) 50%,
-      transparent 100%
-    );
-    transition: left 0.6s ease;
-    pointer-events: none;
-  }
-
-  .gold-shimmer:hover::before {
-    left: 100%;
-  }
-
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-primary-gold {
-    background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
-    color: #0B0B0C;
-    font-weight: 600;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-
-  .btn-primary-gold:hover {
-    background: linear-gradient(135deg, #E4C147 0%, #D4AF37 100%);
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
-    transform: translateY(-1px);
-  }
-
-  .btn-outline-gold {
-    background: transparent;
-    color: #D4AF37;
-    font-weight: 600;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    border: 1.5px solid rgba(212, 175, 55, 0.5);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-
-  .btn-outline-gold:hover {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.8);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
-  }
-
-  .section-padding {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-padding {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
-
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .section-padding {
-      padding-left: 4rem;
-      padding-right: 4rem;
-    }
-  }
-}
-
-@layer utilities {
-  .font-heading {
-    font-family: var(--font-heading);
-  }
-
-  .font-body {
-    font-family: var(--font-body);
-  }
-}
-
-/* Honeypot field styling for forms */
-.hp-field {
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
-  opacity: 0;
-  height: 0;
-  width: 0;
 }

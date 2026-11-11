@@ -1,0 +1,112 @@
+name: 🩺 Uptime guard — Sankofa Royale Award
+
+# Every 20 minutes GitHub opens the live site and checks that it really serves this website.
+# If the site is missing (for example its files were deleted on HostGator), it rebuilds the
+# site from this repository, uploads it again and opens an issue so you know it happened.
+# It never deletes anything on the server.
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Re-upload the site even if it looks healthy
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: uptime-guard
+  cancel-in-progress: false
+
+env:
+  SITE_URL: ${{ vars.SITE_URL || 'https://sankofaroyaleaward.ca' }}
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 🔎 Is the live site healthy?
+        id: check
+        run: |
+          healthy() {
+            html=$(curl -fsSL --max-time 30 -H 'Cache-Control: no-cache' "$SITE_URL/?uptime=$(date +%s)") || return 1
+            asset=$(printf '%s' "$html" | grep -o 'assets/index-[^"]*\.js' | head -1)
+            [ -n "$asset" ] || return 1
+            curl -fsS --max-time 30 -o /dev/null "$SITE_URL/$asset" || return 1
+            curl -fsS --max-time 30 -o /dev/null "$SITE_URL/gallery" || return 1
+          }
+          for i in 1 2 3; do
+            if healthy; then
+              echo "ok=true" >> "$GITHUB_OUTPUT"; echo "✅ $SITE_URL is healthy"; exit 0
+            fi
+            echo "Check $i failed, retrying in 30s"; sleep 30
+          done
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+          echo "::warning::$SITE_URL is not serving the website. Repairing."
+
+      - name: 🚚 Checkout code
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        uses: actions/checkout@v5
+
+      - name: 🏗️ Setup Node.js
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 🔨 Rebuild the site
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        run: npm ci && npm run build
+
+      - name: 🔑 Editor sign-in settings
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        env:
+          CMS_GITHUB_CLIENT_ID: ${{ secrets.CMS_GITHUB_CLIENT_ID }}
+          CMS_GITHUB_CLIENT_SECRET: ${{ secrets.CMS_GITHUB_CLIENT_SECRET }}
+        run: |
+          [ -n "$CMS_GITHUB_CLIENT_ID" ] && [ -n "$CMS_GITHUB_CLIENT_SECRET" ] || exit 0
+          node -e '
+            const b64 = Buffer.from(JSON.stringify({ client_id: process.env.CMS_GITHUB_CLIENT_ID, client_secret: process.env.CMS_GITHUB_CLIENT_SECRET })).toString("base64");
+            require("fs").writeFileSync("out/api/oauth-config.php", "<?php\nreturn json_decode(base64_decode(\x27" + b64 + "\x27), true);\n");
+          '
+
+      - name: 📂 Upload everything again (full copy, nothing deleted)
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get install -y -qq lftp >/dev/null
+          find out -name '*.map' -delete; find out -name '.gitkeep' -delete
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER" -e "set ftp:ssl-allow yes; set ssl:verify-certificate yes; set net:max-retries 3; set net:timeout 30; mirror --reverse --parallel=4 --verbose=1 out/ ./; bye"
+
+      - name: ✅ Confirm the repair worked
+        id: after
+        if: steps.check.outputs.ok == 'false' || inputs.force
+        run: |
+          sleep 5
+          asset=$(grep -o 'assets/index-[^"]*\.js' out/index.html | head -1)
+          curl -fsSL -H 'Cache-Control: no-cache' "$SITE_URL/?v=$(date +%s)" | grep -q "$asset" && echo "✅ site restored" || { echo "::error::Site still down after re-upload"; exit 1; }
+
+      - name: 📣 Open an issue so the owner is notified
+        if: always() && steps.check.outputs.ok == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT: ${{ steps.after.outcome }}
+        run: |
+          if [ "$RESULT" = "success" ]; then
+            title="Site was down and has been restored automatically"
+            body="The uptime guard found $SITE_URL not serving the website at $(date -u '+%Y-%m-%d %H:%M UTC') and re-uploaded it from the repository. It is back up. Check HostGator (Websites list, File Manager) for what removed the files. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            title="🚨 Site is DOWN and automatic repair failed"
+            body="The uptime guard could not restore $SITE_URL. Open the run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+          gh issue create -R "${{ github.repository }}" --title "$title" --body "$body"

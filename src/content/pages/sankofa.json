@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "eyebrow": "Historical Essence",
+    "heading": "What is Sankofa?",
+    "intro": "A word from the Akan people of Ghana that carries a whole philosophy: return to your roots, recover what is valuable, and carry it forward.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316123/sankofa-2023-12_rnhnuz.jpg"
+  },
+  "meaning": {
+    "word": "San · ko · fa",
+    "parts": [
+      {
+        "term": "San",
+        "meaning": "to return"
+      },
+      {
+        "term": "Ko",
+        "meaning": "to go"
+      },
+      {
+        "term": "Fa",
+        "meaning": "to fetch, to take"
+      }
+    ],
+    "translation": "“It is not taboo to go back and fetch what is at risk of being left behind.”"
+  },
+  "chapters": [
+    {
+      "heading": "A proverb of wisdom",
+      "body": "Sankofa comes from the Twi language of the Akan people of Ghana and Côte d'Ivoire. It teaches that the past is not a burden to escape but a source of knowledge. Whatever we have lost, forgotten or been forced to give up can be reclaimed — and reclaiming it is how we move forward with purpose.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312811/VIKI7961_1_wz9rfk.jpg"
+    },
+    {
+      "heading": "The bird that looks back",
+      "body": "Sankofa is drawn as a bird whose feet face forward while its head turns back, carrying a precious egg in its beak. The egg is the future; the backward glance is memory. It is also written as a heart-shaped Adinkra symbol, one of the visual proverbs printed on cloth, carved in wood and cast in gold across West Africa.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316115/sankofa-2023-2_cf9oxy.jpg"
+    },
+    {
+      "heading": "A symbol of the diaspora",
+      "body": "Across the African diaspora, Sankofa has become a symbol of reclaimed history and cultural pride — a reminder that the struggles and triumphs of those who came before us light the path ahead.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316130/sankofa-2023-22_soi8fo.jpg"
+    }
+  ],
+  "whyHeading": "Why our awards carry this name",
+  "whyBody": "The Sankofa Royale Awards look back to honour the people who built our communities, and forward to inspire those who will lead them next. Each award is a small act of Sankofa: going back to fetch the stories, sacrifices and successes that might otherwise be forgotten, and lifting them up for everyone to see.",
+  "values": [
+    {
+      "title": "Remember",
+      "text": "Honour heritage, elders and the foundations they laid."
+    },
+    {
+      "title": "Recognise",
+      "text": "Celebrate excellence that too often goes unseen."
+    },
+    {
+      "title": "Rise",
+      "text": "Carry the lessons forward to build what comes next."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "eyebrow": "The heart behind the awards",
+    "heading": "Canadian and African Women Aid Program",
+    "intro": "CAWAP is a Brampton non-profit supporting racialized Canadian and African women and their families through education, empowerment and direct community services.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312872/VIKI8735_ojccmx.jpg"
+  },
+  "about": {
+    "heading": "Fighting hunger, racism and isolation — together",
+    "body": "CAWAP works every day against systemic racism, hunger and isolation. Through food access, youth and senior programs, newcomer support, skills training and financial literacy, the organisation helps families not only survive but thrive.\n\nThe Sankofa Royale Awards are CAWAP's signature celebration: a night to honour the community it serves and to raise the funds that keep its programs running all year long.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316115/sankofa-2023-1_eqxxyg.jpg"
+  },
+  "areasHeading": "Twelve ways CAWAP serves",
+  "areas": [
+    {
+      "title": "Women Empowerment Initiatives",
+      "text": "Programs that uplift and advance women through skill-building and advocacy."
+    },
+    {
+      "title": "Youth Recreational & After-School Programs",
+      "text": "Safe, engaging activities that nurture talent and build character."
+    },
+    {
+      "title": "Senior & Intergenerational Programs",
+      "text": "Connecting generations through shared activities and mutual support."
+    },
+    {
+      "title": "Social Enterprise & Income Generation",
+      "text": "Tools and training to build sustainable income and small businesses."
+    },
+    {
+      "title": "Volunteerism & Community Engagement",
+      "text": "Mobilising volunteers to meet community needs together."
+    },
+    {
+      "title": "Income Tax & Financial Literacy",
+      "text": "Free tax clinics and workshops that put families in control of their finances."
+    },
+    {
+      "title": "Summer Camp Programs",
+      "text": "Summer experiences in arts, sports, STEM and cultural education."
+    },
+    {
+      "title": "Summer & Seasonal Youth Jobs",
+      "text": "Connecting young people with meaningful seasonal employment."
+    },
+    {
+      "title": "Professional Skills Training",
+      "text": "Career-focused workshops that open doors to new opportunities."
+    },
+    {
+      "title": "Food Pantry Access",
+      "text": "Accessible food distribution so that no family goes hungry."
+    },
+    {
+      "title": "Mental Health & Well-being",
+      "text": "Breaking stigma and connecting people to wellness resources."
+    },
+    {
+      "title": "Homeless & Hot Table Services",
+      "text": "Warm meals and outreach for people experiencing homelessness."
+    }
+  ],
+  "cta": {
+    "heading": "Support the work all year round",
+    "body": "Volunteer, donate or partner with CAWAP — and see every program in detail on the CAWAP website.",
+    "buttonLabel": "Visit cawap.ca"
+  }
+}

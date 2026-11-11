@@ -74,3 +74,10 @@ Undo: set `DEPLOY_TARGET` back to `preview` and restore the backup from step 4.1
   a green tick when the change is live, with the link in the run summary.
 - **Redeploy without changes**: Actions → Run workflow (you can pick preview or production).
 - **Pull requests**: built as a check, never uploaded.
+
+## Uptime guard
+`.github/workflows/monitor.yml` checks the live site every 20 minutes. If the site is missing (for example its
+files were deleted in HostGator), it rebuilds it from this repository, uploads a full copy (never deletes anything)
+and opens a GitHub issue, which GitHub emails to you. You can also run it by hand: Actions → Uptime guard →
+Run workflow (tick "force" to re-upload even when healthy). Note: GitHub pauses scheduled workflows after 60 days
+without any commit; any edit in the website editor counts as a commit.

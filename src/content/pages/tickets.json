@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "eyebrow": "Ticket & Table Desk",
+    "heading": "Secure your seat",
+    "intro": "Four ways to join the celebration — every one an investment in community programs.",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313807/VIKI8565_qpts1g.jpg"
+  },
+  "priceNote": "Prices shown are from the 2025 gala. Confirm current pricing when you reserve.",
+  "tiers": [
+    {
+      "name": "Single Ticket",
+      "price": "$120",
+      "guests": "1 guest",
+      "features": [
+        "African dining experience",
+        "Red carpet access",
+        "Live performances & awards ceremony",
+        "Paparazzi photo experience"
+      ],
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312787/VIKI7576_dbt0dr.jpg",
+      "featured": false
+    },
+    {
+      "name": "VIP Table",
+      "price": "$1,000",
+      "guests": "Table for 10",
+      "features": [
+        "Reserved table for ten guests",
+        "African dining for the whole table",
+        "Red carpet access for all guests",
+        "Recognition as a table host"
+      ],
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312779/VIKI7526_ptxlpq.jpg",
+      "featured": false
+    },
+    {
+      "name": "VVIP Table",
+      "price": "$2,000",
+      "guests": "Table for 10",
+      "features": [
+        "Premium table placement for ten",
+        "Five-star dining experience",
+        "Fine wine at the table",
+        "Priority red carpet moments"
+      ],
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312780/VIKI7548_f4zrym.jpg",
+      "featured": true
+    },
+    {
+      "name": "Platinum VVIP Table",
+      "price": "$3,000",
+      "guests": "Table for 10",
+      "features": [
+        "Front-row table closest to the stage",
+        "Classic luxury cuisine",
+        "Exotic liquor selection",
+        "Premier recognition during the evening"
+      ],
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313807/VIKI8565_qpts1g.jpg",
+      "featured": false
+    }
+  ],
+  "howToBuy": {
+    "heading": "How to reserve",
+    "body": "Tickets are limited and tables sell out early. Reserve by WhatsApp, phone or email — our team will confirm your seats and payment details personally.",
+    "whatsappLabel": "Reserve on WhatsApp",
+    "callLabel": "Call us",
+    "emailLabel": "Email us"
+  },
+  "faq": {
+    "heading": "Good to know",
+    "items": [
+      {
+        "question": "What is included in a ticket?",
+        "answer": "Every ticket includes the dinner, the red carpet, live performances, the awards ceremony and the photo experience. Table tiers add premium placement, dining and drinks as listed."
+      },
+      {
+        "question": "Can I buy a table for my organisation?",
+        "answer": "Yes. Tables seat ten and are ideal for businesses, churches, associations and families. Ask us about recognition for your organisation on the night."
+      },
+      {
+        "question": "What should I wear?",
+        "answer": "Formal traditional attire is encouraged — the red carpet celebrates the style of the diaspora. Black tie is also welcome."
+      },
+      {
+        "question": "Where does the money go?",
+        "answer": "Proceeds support the community programs of the Canadian and African Women Aid Program (CAWAP), a Brampton non-profit."
+      },
+      {
+        "question": "Can I contribute without attending?",
+        "answer": "Absolutely. Contact us to make a contribution or to sponsor an honouree's seat."
+      }
+    ]
+  }
+}

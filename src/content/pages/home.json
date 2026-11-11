@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "eyebrow": "Presented by CAWAP · Brampton, Ontario",
+    "titleLine1": "Sankofa",
+    "titleLine2": "Royale Awards",
+    "intro": "An evening of honour, heritage and celebration — where the Black community gathers to recognise the leaders, builders and dreamers who lift us all.",
+    "primaryLabel": "Reserve a Seat",
+    "secondaryLabel": "Nominate a Leader",
+    "slides": [
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312868/VIKI8632_iknjel.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313831/VIKI8740_s0ie1h.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316125/sankofa-2023-15_oeqz3b.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316130/sankofa-2023-22_soi8fo.jpg"
+    ]
+  },
+  "ribbon": [
+    "Celebrating the Past",
+    "Inspiring the Future",
+    "The Power of Us",
+    "Black Excellence",
+    "Sankofa"
+  ],
+  "story": {
+    "eyebrow": "Our Purpose",
+    "heading": "Recognition our community has waited for",
+    "body": "Too often, the achievements of Black and African Canadians go uncelebrated. The Sankofa Royale Awards were created to change that — to recognise the people whose work quietly transforms neighbourhoods, businesses, congregations and classrooms across the Greater Toronto Area and beyond.\n\nEach gala is also a fundraiser. Every seat and every table helps the Canadian and African Women Aid Program build a larger platform of support: food access, youth programs, newcomer services and empowerment initiatives for families who need them most.",
+    "pillars": [
+      {
+        "title": "Honour",
+        "text": "We celebrate African and Caribbean community members whose contributions deserve a stage."
+      },
+      {
+        "title": "Represent",
+        "text": "We answer a lack of representation by recognising excellence across every sector."
+      },
+      {
+        "title": "Give back",
+        "text": "Proceeds support CAWAP's programs for women, youth, seniors and families."
+      }
+    ],
+    "imageLarge": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312811/VIKI7918_1_twgwd8.jpg",
+    "imageSmall": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312824/VIKI8029_xlixys.jpg",
+    "quote": "It is not taboo to go back and fetch what you forgot.",
+    "quoteSource": "The Akan proverb behind Sankofa"
+  },
+  "experience": {
+    "eyebrow": "The Gala Night",
+    "heading": "One night. Every detail, royal.",
+    "items": [
+      {
+        "title": "The Red Carpet",
+        "text": "Guests arrive in style and walk a red carpet lined with cameras, music and applause.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312775/VIKI7478_elddoi.jpg"
+      },
+      {
+        "title": "African Fine Dining",
+        "text": "A curated dinner celebrating the flavours of the continent, served on gold.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312780/VIKI7548_f4zrym.jpg"
+      },
+      {
+        "title": "The Awards",
+        "text": "Honourees take the stage to receive the Sankofa Royale Award before the whole community.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312824/VIKI8029_xlixys.jpg"
+      },
+      {
+        "title": "The Paparazzi Experience",
+        "text": "Professional photographers capture every arrival, embrace and triumphant moment.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313807/VIKI8766_dxhh0i.jpg"
+      }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "Look back to move forward",
+    "heading": "Our journey so far",
+    "items": [
+      {
+        "year": "2023",
+        "title": "The Excellence Awards",
+        "text": "The first Sankofa Royale stage lights up, honouring community builders in traditional splendour.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316122/sankofa-2023-11_equxx4.jpg",
+        "link": "/gallery/gala-2023"
+      },
+      {
+        "year": "2024",
+        "title": "Be My Guest",
+        "text": "Dozens of nominees across leadership, entrepreneurship, humanitarian service, education and media.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316085/Nominees-2024-9_q439zs.jpg",
+        "link": "/gallery/nominees-2024"
+      },
+      {
+        "year": "2025",
+        "title": "The Power of Us",
+        "text": "Limousine arrivals, a full ceremony and a celebration of the past that inspires the future.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312840/VIKI8147_j2fisc.jpg",
+        "link": "/gallery/gala-2025"
+      },
+      {
+        "year": "Next",
+        "title": "Your story",
+        "text": "Nominations and tables for the next edition open soon. Be part of the next chapter.",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312876/VIKI8741_ugimyk.jpg",
+        "link": "/tickets"
+      }
+    ]
+  },
+  "categoriesTeaser": {
+    "eyebrow": "The Awards",
+    "heading": "Nineteen categories of excellence",
+    "body": "From community leadership and humanitarian service to entrepreneurship, education, the arts and public service — every category honours a different way of lifting others.",
+    "buttonLabel": "See all categories & nominate"
+  },
+  "ticketsTeaser": {
+    "eyebrow": "Tickets & Tables",
+    "heading": "Choose your evening",
+    "body": "From a single seat at the celebration to a front-row Platinum VVIP table for ten, every ticket supports the community work of CAWAP.",
+    "buttonLabel": "View all tiers"
+  },
+  "galleryTeaser": {
+    "eyebrow": "The Royal Archive",
+    "heading": "Moments worth remembering",
+    "buttonLabel": "Open the gallery"
+  },
+  "invitation": {
+    "eyebrow": "You are cordially invited",
+    "heading": "Take your seat at the table",
+    "body": "Join community leaders, families, entrepreneurs and friends for an unforgettable evening of honour and celebration. Seats are limited and tables sell out early.",
+    "primaryLabel": "Reserve a Seat",
+    "secondaryLabel": "Become a Sponsor",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312888/VIKI8912_1_ad9cvo.jpg"
+  }
+}

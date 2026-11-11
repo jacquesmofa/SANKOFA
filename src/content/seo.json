@@ -1,0 +1,44 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "title": "Sankofa Royale Awards & VVIP Gala | Celebrating Black Excellence",
+      "description": "An annual awards gala in Brampton, Ontario honouring Black excellence and community leadership. Presented by CAWAP. Tickets, nominations and gallery."
+    },
+    {
+      "path": "/award-night",
+      "title": "The Gala Night | Sankofa Royale Awards",
+      "description": "Red carpet arrivals, African cuisine, live performances and the awards ceremony: what to expect at the Sankofa Royale Awards gala."
+    },
+    {
+      "path": "/sankofa",
+      "title": "What is Sankofa? | Sankofa Royale Awards",
+      "description": "The meaning of Sankofa, the Akan principle of returning to fetch what was left behind, and why it gives our awards their name."
+    },
+    {
+      "path": "/nomination",
+      "title": "Nominate an Outstanding Leader | Sankofa Royale Awards",
+      "description": "Nineteen award categories honouring community leaders, entrepreneurs, educators, humanitarians and youth. How to nominate someone."
+    },
+    {
+      "path": "/tickets",
+      "title": "Tickets & Tables | Sankofa Royale Awards Gala",
+      "description": "Single tickets, VIP, VVIP and Platinum VVIP tables for the Sankofa Royale Awards gala. Reserve by WhatsApp, phone or email."
+    },
+    {
+      "path": "/gallery",
+      "title": "Gallery | Sankofa Royale Awards 2023–2025",
+      "description": "Photo albums from the Sankofa Royale Awards: the 2025 gala night and ceremony, 2024 nominees and the 2023 excellence awards."
+    },
+    {
+      "path": "/cawap",
+      "title": "About CAWAP | Sankofa Royale Awards",
+      "description": "The Canadian and African Women Aid Program: the Brampton non-profit behind the Sankofa Royale Awards and its twelve service areas."
+    },
+    {
+      "path": "/contact",
+      "title": "Contact & Sponsorship | Sankofa Royale Awards",
+      "description": "Contact the Sankofa Royale Awards team for tickets, nominations, sponsorship and media enquiries."
+    }
+  ]
+}

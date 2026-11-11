@@ -1,90 +1,35 @@
 import type { Config } from "tailwindcss";
 
+// Sankofa Royale design tokens (see brand-dna.md).
+// ink = warm black of the ballroom · carpet = the red carpet · gold = antique award gold · ivory = invitation paper
 const config: Config = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-body)", "DM Sans", "sans-serif"],
-        body: ["var(--font-body)", "DM Sans", "sans-serif"],
-        heading: ["var(--font-heading)", "Playfair Display", "serif"],
-        display: ["var(--font-heading)", "Playfair Display", "serif"],
-        serif: ["var(--font-heading)", "Playfair Display", "serif"],
-        label: ["var(--font-label)", "DM Sans", "sans-serif"],
-      },
       colors: {
-        background: {
-          50: "oklch(var(--background-50) / <alpha-value>)",
-          100: "oklch(var(--background-100) / <alpha-value>)",
-          200: "oklch(var(--background-200) / <alpha-value>)",
-          300: "oklch(var(--background-300) / <alpha-value>)",
-          400: "oklch(var(--background-400) / <alpha-value>)",
-          500: "oklch(var(--background-500) / <alpha-value>)",
-          600: "oklch(var(--background-600) / <alpha-value>)",
-          700: "oklch(var(--background-700) / <alpha-value>)",
-          800: "oklch(var(--background-800) / <alpha-value>)",
-          900: "oklch(var(--background-900) / <alpha-value>)",
-          950: "oklch(var(--background-950) / <alpha-value>)",
-        },
-        primary: {
-          50: "oklch(var(--primary-50) / <alpha-value>)",
-          100: "oklch(var(--primary-100) / <alpha-value>)",
-          200: "oklch(var(--primary-200) / <alpha-value>)",
-          300: "oklch(var(--primary-300) / <alpha-value>)",
-          400: "oklch(var(--primary-400) / <alpha-value>)",
-          500: "oklch(var(--primary-500) / <alpha-value>)",
-          600: "oklch(var(--primary-600) / <alpha-value>)",
-          700: "oklch(var(--primary-700) / <alpha-value>)",
-          800: "oklch(var(--primary-800) / <alpha-value>)",
-          900: "oklch(var(--primary-900) / <alpha-value>)",
-          950: "oklch(var(--primary-950) / <alpha-value>)",
-        },
-        accent: {
-          50: "oklch(var(--accent-50) / <alpha-value>)",
-          100: "oklch(var(--accent-100) / <alpha-value>)",
-          200: "oklch(var(--accent-200) / <alpha-value>)",
-          300: "oklch(var(--accent-300) / <alpha-value>)",
-          400: "oklch(var(--accent-400) / <alpha-value>)",
-          500: "oklch(var(--accent-500) / <alpha-value>)",
-          600: "oklch(var(--accent-600) / <alpha-value>)",
-          700: "oklch(var(--accent-700) / <alpha-value>)",
-          800: "oklch(var(--accent-800) / <alpha-value>)",
-          900: "oklch(var(--accent-900) / <alpha-value>)",
-          950: "oklch(var(--accent-950) / <alpha-value>)",
-        },
-        secondary: {
-          50: "oklch(var(--secondary-50) / <alpha-value>)",
-          100: "oklch(var(--secondary-100) / <alpha-value>)",
-          200: "oklch(var(--secondary-200) / <alpha-value>)",
-          300: "oklch(var(--secondary-300) / <alpha-value>)",
-          400: "oklch(var(--secondary-400) / <alpha-value>)",
-          500: "oklch(var(--secondary-500) / <alpha-value>)",
-          600: "oklch(var(--secondary-600) / <alpha-value>)",
-          700: "oklch(var(--secondary-700) / <alpha-value>)",
-          800: "oklch(var(--secondary-800) / <alpha-value>)",
-          900: "oklch(var(--secondary-900) / <alpha-value>)",
-          950: "oklch(var(--secondary-950) / <alpha-value>)",
-        },
-        foreground: {
-          50: "oklch(var(--foreground-50) / <alpha-value>)",
-          100: "oklch(var(--foreground-100) / <alpha-value>)",
-          200: "oklch(var(--foreground-200) / <alpha-value>)",
-          300: "oklch(var(--foreground-300) / <alpha-value>)",
-          400: "oklch(var(--foreground-400) / <alpha-value>)",
-          500: "oklch(var(--foreground-500) / <alpha-value>)",
-          600: "oklch(var(--foreground-600) / <alpha-value>)",
-          700: "oklch(var(--foreground-700) / <alpha-value>)",
-          800: "oklch(var(--foreground-800) / <alpha-value>)",
-          900: "oklch(var(--foreground-900) / <alpha-value>)",
-          950: "oklch(var(--foreground-950) / <alpha-value>)",
-        },
+        ink: { DEFAULT: "#0F0C0B", 2: "#17120F", 3: "#211915", line: "#3A2C22" },
+        carpet: { DEFAULT: "#B3121E", deep: "#7A0C14", glow: "#D6303B" },
+        gold: { DEFAULT: "#C8A253", light: "#E6CF96", deep: "#8C6B2C" },
+        ivory: { DEFAULT: "#F3EBDD", muted: "#BDB1A0", dim: "#8A7F72" },
+      },
+      fontFamily: {
+        display: ['"Bodoni Moda"', "Didot", "Georgia", "serif"],
+        sans: ["Manrope", "system-ui", "sans-serif"],
+      },
+      letterSpacing: { label: "0.28em" },
+      maxWidth: { page: "1240px" },
+      keyframes: {
+        kenburns: { "0%": { transform: "scale(1.06)" }, "100%": { transform: "scale(1.16) translate(-1.5%, -1%)" } },
+        marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
+        rise: { "0%": { opacity: "0", transform: "translateY(24px)" }, "100%": { opacity: "1", transform: "none" } },
+      },
+      animation: {
+        kenburns: "kenburns 14s ease-out forwards",
+        marquee: "marquee 40s linear infinite",
+        rise: "rise .9s cubic-bezier(.2,.7,.2,1) both",
       },
     },
   },
   plugins: [],
 };
-
 export default config;

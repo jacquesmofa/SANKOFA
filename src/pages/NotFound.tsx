@@ -1,18 +1,20 @@
-import { useLocation } from "react-router-dom";
+import { usePageMeta } from "@/lib/seo";
+import { Button } from "@/components/Button";
+import { SankofaMark } from "@/components/Mark";
 
 export default function NotFound() {
-  const location = useLocation();
-  
+  usePageMeta("/404", "Page not found");
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen text-center px-4">
-      <h1 className="absolute bottom-0 text-9xl md:text-[12rem] font-black text-gray-50 select-none pointer-events-none z-0">
-        404
-      </h1>
-      <div className="relative z-10">
-        <h1 className="text-xl md:text-2xl font-semibold mt-6">This page has not been generated</h1>
-        <p className="mt-2 text-base text-gray-400 font-mono">{location.pathname}</p>
-        <p className="mt-4 text-lg md:text-xl text-gray-500">Tell me more about this page, so I can generate it</p>
+    <main className="flex min-h-[80vh] items-center justify-center bg-ink px-5 pt-[76px] text-center">
+      <div>
+        <SankofaMark className="mx-auto h-20 w-20 text-gold" />
+        <p className="mt-8 font-display text-7xl italic text-gold-light">404</p>
+        <h1 className="mt-4 font-display text-3xl text-ivory">This page has wandered off</h1>
+        <p className="mx-auto mt-4 max-w-md text-ivory/70">Sankofa teaches us it is never wrong to go back. Let's return you home.</p>
+        <Button to="/" className="mt-8">
+          Back to home
+        </Button>
       </div>
-    </div>
+    </main>
   );
 }

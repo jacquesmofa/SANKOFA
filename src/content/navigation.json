@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "label": "Home",
+      "to": "/"
+    },
+    {
+      "label": "The Gala Night",
+      "to": "/award-night"
+    },
+    {
+      "label": "What is Sankofa",
+      "to": "/sankofa"
+    },
+    {
+      "label": "Nominate",
+      "to": "/nomination"
+    },
+    {
+      "label": "Gallery",
+      "to": "/gallery"
+    },
+    {
+      "label": "CAWAP",
+      "to": "/cawap"
+    },
+    {
+      "label": "Contact",
+      "to": "/contact"
+    }
+  ],
+  "cta": {
+    "label": "Reserve a Seat",
+    "to": "/tickets"
+  }
+}

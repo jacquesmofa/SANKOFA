@@ -12,18 +12,22 @@ Everything marked ❓ must come from the client or Jacques. Method: the studio's
 4. **References:** ❓ 3 sites they love (and exactly what about each) + 1 they dislike.
 5. **Real assets:** ❓ logo files (vector), brand colours/fonts already in use (print, signage, social), real photos and video. Current site: 17 Readdy placeholder image URLs.
 
-## 2. Design system (current, as built; to be approved or replaced)
-| Colour | Role today |
-|---|---|
-| `oklch(0.72 0.16 85) ≈ #D4AF37` | gold (primary) |
-| `oklch(0.70 0.18 15)` | rose-red accent |
-| `#0B0B0C` | near-black |
+## 2. Design system (as built, 11 Nov 2026 — awaiting client approval)
+Taken from the real event: the red carpet, gold award trophies and chargers, the warm black ballroom.
 
-- **Type:** Playfair Display (headings), DM Sans (body)
-- **Layout rhythm / shape language / imagery / motion:** ❓ not defined yet (Readdy defaults).
-- **Signature moment:** ❓ none yet. Must be one element only this brand has.
-- **Overlap with other clients:** Gold shared with Elite Atelier, Kwetu, JRFAN, WORI and the portfolio. Adinkra/Sankofa symbolism can make it unmistakable.
+| Token | Value | Meaning |
+|---|---|---|
+| `ink` | #0F0C0B (+ #17120F, #211915 surfaces) | the ballroom at night |
+| `carpet` | #B3121E (deep #7A0C14, glow #D6303B) | the red carpet, used sparingly as the accent |
+| `gold` | #C8A253 (light #E6CF96) | antique award gold (deliberately not the bright #D4AF37 other clients use) |
+| `ivory` | #F3EBDD | invitation paper, text |
+
+- **Type:** Bodoni Moda (display, high-contrast couture serif, italic for flourishes) + Manrope (text). Labels: 11px uppercase, 0.28em tracking.
+- **Layout rhythm:** editorial and asymmetric — split heroes with a tall photo in a gold offset frame, alternating left/right chapters, staggered photo strips. Square corners everywhere (no rounded cards).
+- **Imagery:** only real event photos (Cloudinary, cropped with g_auto). Slow Ken Burns crossfade on the home hero; light desaturation that lifts on hover in the timeline.
+- **Motion:** content rises into view; the red ribbon of the year's theme scrolls. All motion off with "reduce motion".
+- **Signature moment:** the Sankofa Adinkra heart, drawn for this site — logo mark, section dividers, giant watermark, and the "Look back to move forward" timeline (2023 → 2024 → 2025 → Next). The closing section is an engraved gala invitation card.
 
 ## 3. Before launch
-- Could this site be mistaken for any other client's site? If yes, push the signature moment, type and imagery further.
-- All placeholders replaced or listed in `PLACEHOLDERS.md`.
+- [x] No Readdy placeholders left; every image is a real event photo.
+- [ ] Client approves palette/type and answers the ❓ items above (see PLACEHOLDERS.md).
