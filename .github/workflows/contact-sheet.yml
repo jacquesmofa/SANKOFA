@@ -1,0 +1,31 @@
+name: contact sheet (temporary)
+on:
+  push:
+    branches: [tools-contact-sheet]
+jobs:
+  sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: sudo apt-get install -y -qq imagemagick >/dev/null
+      - run: |
+          mkdir -p thumbs sheets
+          python3 - <<'PY'
+          import json,subprocess,os
+          al=json.load(open('.tools/albums.json'))
+          out=[]
+          for a,l in al.items():
+              for i,p in enumerate(l):
+                  f=f"thumbs/{a}__{i:03d}.jpg"
+                  subprocess.run(["curl","-sfL","-o",f,f"https://res.cloudinary.com/hxhakwbe/image/upload/w_360,q_70/{p['id']}"])
+          PY
+          identify -format "%f %w %h\n" thumbs/*.jpg > sheets/dims.txt
+          for a in gala-2025 awards-2025 nominees-2024 gala-2023; do
+            ls thumbs/${a}__*.jpg | split -l 30 - /tmp/grp_${a}_
+            for g in /tmp/grp_${a}_*; do
+              montage -label '%t' -font DejaVu-Sans -pointsize 14 $(cat $g) -tile 6x -geometry 230x230+4+4 -background '#222' -fill white sheets/${a}_$(basename $g).jpg
+            done
+          done
+          ls -la sheets
+      - uses: actions/upload-artifact@v4
+        with: { name: sheets, path: sheets }
