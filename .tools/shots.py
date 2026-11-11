@@ -1,7 +1,7 @@
 import sys
 from playwright.sync_api import sync_playwright
 base=sys.argv[1]
-paths=[("home",""),("gala","award-night"),("sankofa","sankofa"),("nominate","nomination"),("tickets","tickets"),("gallery","gallery"),("album","gallery/gala-2025"),("nominees","gallery/nominees-2024"),("cawap","cawap"),("contact","contact")]
+paths=[("home",""),("tickets","tickets")]
 with sync_playwright() as p:
     b=p.chromium.launch()
     for tag,w,h in (("d",1440,900),("m",390,844)):
