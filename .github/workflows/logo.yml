@@ -1,0 +1,28 @@
+name: find old logo (temporary)
+on:
+  push:
+    branches: [tools-logo]
+permissions:
+  contents: write
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: |
+          mkdir -p found
+          C="https://web.archive.org/cdx/search/cdx"
+          curl -s "$C?url=sankofaroyaleaward.ca&output=txt&filter=statuscode:200&fl=timestamp,original&collapse=digest&limit=50" > found/home_snapshots.txt
+          curl -s "$C?url=sankofaroyaleaward.ca/wp-content/uploads/*&output=txt&filter=statuscode:200&fl=timestamp,original,mimetype,length&collapse=urlkey&limit=2000" > found/uploads.txt
+          wc -l found/*.txt; tail -5 found/home_snapshots.txt
+          TS=$(tail -1 found/home_snapshots.txt | cut -d' ' -f1)
+          curl -sL "https://web.archive.org/web/${TS}id_/https://sankofaroyaleaward.ca/" > found/home.html
+          grep -oiE '<(img|link)[^>]*(logo|icon)[^>]*>' found/home.html | head -20 > found/logo_tags.txt
+          cat found/logo_tags.txt
+          # download likely logo/icon candidates
+          grep -iE "logo|icon|sankofa|favicon|cropped" found/uploads.txt | grep -iE "png|jpe?g|svg|webp" | head -40 > found/candidates.txt
+          i=0; while read ts url mime len; do i=$((i+1)); ext="${url##*.}"; curl -sL -o "found/c_${i}_$(basename "$url")" "https://web.archive.org/web/${ts}id_/${url}"; done < found/candidates.txt
+          ls -la found
+      - run: |
+          git config user.name ci; git config user.email ci@example.com
+          git add found && git commit -qm "found [skip ci]" && git push -q
