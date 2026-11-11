@@ -19,4 +19,4 @@ site folder `/home3/irineashu/sankofaroyaleaward.ca`.
 - Content is still hard-coded in components/mocks; not yet converted to editable `src/content/` JSON
   (CAWAP pattern: Pages CMS + Sveltia at /admin).
 - Stripe checkout depends on Supabase Edge Functions that are not set up.
-- brand-dna.md not written yet.
+- `brand-dna.md`: DRAFT extracted from the current site (10 Nov 2026); ❓ items need the client.
