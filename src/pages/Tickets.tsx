@@ -1,6 +1,7 @@
 import { Check, Mail, MessageCircle, Phone, Plus } from "lucide-react";
 import { event, formatDate, site, tickets, upcomingDate, whatsappLink } from "@/lib/content";
 import { usePageMeta } from "@/lib/seo";
+import { Field, FormShell, fieldClass } from "@/components/FormShell";
 import { Img } from "@/components/Img";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -16,6 +17,9 @@ export default function Tickets() {
       <PageHero {...p.hero} imageAlt="A gala table set with gold chargers and fine wine">
         <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-ink hover:bg-gold-light">
           <MessageCircle className="h-4 w-4" /> {p.howToBuy.whatsappLabel}
+        </a>
+        <a href="#reserve" className="inline-flex items-center gap-2 border border-gold/60 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-gold-light hover:bg-gold/10">
+          Reserve online
         </a>
       </PageHero>
 
@@ -64,6 +68,43 @@ export default function Tickets() {
               </article>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section id="reserve" className="scroll-mt-24 bg-ink py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
+          <SectionHeading eyebrow="Reservation request" heading={p.form.heading} body={p.form.intro} />
+          <div className="mt-10 border border-gold/40 bg-ink-2 p-7 md:p-10">
+            <FormShell subject={(fd) => `Reservation: ${fd.get("tier")} × ${fd.get("quantity")} — ${fd.get("name")}`} submitLabel="Send reservation request" successMessage={p.form.successMessage}>
+              <Field label="Full name" required>
+                <input name="name" required autoComplete="name" className={fieldClass} />
+              </Field>
+              <Field label="Organisation (optional)">
+                <input name="organisation" autoComplete="organization" className={fieldClass} />
+              </Field>
+              <Field label="Email" required>
+                <input name="email" type="email" required autoComplete="email" className={fieldClass} />
+              </Field>
+              <Field label="Phone / WhatsApp" required>
+                <input name="phone" type="tel" required autoComplete="tel" className={fieldClass} />
+              </Field>
+              <Field label="Ticket or table" required>
+                <select name="tier" required className={fieldClass} defaultValue={p.tiers.find((t) => t.featured)?.name ?? p.tiers[0].name}>
+                  {p.tiers.map((t) => (
+                    <option key={t.name} value={t.name}>
+                      {t.name} — {t.price} ({t.guests})
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="How many?" required>
+                <input name="quantity" type="number" min={1} max={50} defaultValue={1} required className={fieldClass} />
+              </Field>
+              <Field label="Anything we should know? (dietary needs, guest names, sponsorship…)" className="md:col-span-2">
+                <textarea name="message" rows={4} maxLength={3000} className={fieldClass} />
+              </Field>
+            </FormShell>
+          </div>
         </div>
       </section>
 

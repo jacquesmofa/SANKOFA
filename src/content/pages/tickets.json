@@ -91,5 +91,10 @@
         "answer": "Absolutely. Contact us to make a contribution or to sponsor an honouree's seat."
       }
     ]
+  },
+  "form": {
+    "heading": "Reserve online",
+    "intro": "Tell us what you would like and our team will confirm your seats and payment details personally — usually within a day.",
+    "successMessage": "Your reservation request has been received. Our team will contact you to confirm your seats and payment."
   }
 }

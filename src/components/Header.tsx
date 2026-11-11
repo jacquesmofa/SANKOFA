@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navigation, site } from "@/lib/content";
-import { SankofaMark } from "./Mark";
+import { Logo } from "./Logo";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,7 +30,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-[76px] max-w-page items-center justify-between px-5 md:px-8">
         <Link to="/" className="group flex items-center gap-3" aria-label={`${site.name}, home`}>
-          <SankofaMark className="h-9 w-9 text-gold transition-transform duration-500 group-hover:-rotate-6" />
+          <Logo className="h-12 w-auto transition-transform duration-500 group-hover:scale-105" />
           <span className="leading-none">
             <span className="block font-display text-[19px] tracking-wide text-ivory">Sankofa</span>
             <span className="block text-[9.5px] font-semibold uppercase tracking-[0.42em] text-gold">Royale Awards</span>

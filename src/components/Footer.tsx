@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navigation, site, whatsappLink } from "@/lib/content";
 import { SankofaMark } from "./Mark";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,13 +11,8 @@ export function Footer() {
       <SankofaMark className="pointer-events-none absolute -right-24 -top-16 h-[420px] w-[420px] text-gold/[0.04]" />
       <div className="relative mx-auto grid max-w-page gap-12 px-5 py-16 md:grid-cols-12 md:px-8">
         <div className="md:col-span-5">
-          <div className="flex items-center gap-3">
-            <SankofaMark className="h-11 w-11 text-gold" />
-            <div>
-              <p className="font-display text-2xl text-ivory">{site.name}</p>
-              <p className="text-xs text-ivory-muted">{site.presentedBy}</p>
-            </div>
-          </div>
+          <Logo variant="full" className="w-44" />
+          <p className="mt-4 text-xs text-ivory-muted">{site.presentedBy}</p>
           <p className="mt-6 max-w-sm font-display text-lg italic leading-relaxed text-ivory/80">{site.tagline}</p>
           <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
             {site.socials.map((s) => (

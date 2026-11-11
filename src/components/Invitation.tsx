@@ -1,7 +1,7 @@
 import { home } from "@/lib/content";
 import { Button } from "./Button";
 import { Img } from "./Img";
-import { SankofaMark } from "./Mark";
+import { Logo } from "./Logo";
 
 /** Closing section styled as an engraved gala invitation card over a photo. */
 export function Invitation() {
@@ -13,7 +13,7 @@ export function Invitation() {
       <div className="relative mx-auto max-w-3xl px-5">
         <div className="border border-gold/60 bg-ink/80 p-2 backdrop-blur-sm">
           <div className="border border-gold/30 px-6 py-12 text-center md:px-16 md:py-16">
-            <SankofaMark className="mx-auto h-12 w-12 text-gold" />
+            <Logo className="mx-auto h-16 w-auto" />
             <p className="mt-6 font-display text-sm italic tracking-wide text-gold-light">{inv.eyebrow}</p>
             <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">{inv.heading}</h2>
             <p className="mx-auto mt-5 max-w-xl leading-relaxed text-ivory/75">{inv.body}</p>
