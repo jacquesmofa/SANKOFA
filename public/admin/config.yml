@@ -1194,6 +1194,34 @@ collections:
         file: "src/content/seo.json"
         format: "json"
         fields:
+          - name: "site"
+            label: "Share preview defaults (Facebook, WhatsApp, LinkedIn, X)"
+            required: false
+            hint: "Used for every page that has no picture of its own."
+            widget: "object"
+            fields:
+              - name: "name"
+                label: "Name"
+                required: false
+                widget: "string"
+              - name: "url"
+                label: "Link (full https:// address)"
+                required: false
+                widget: "string"
+              - name: "locale"
+                label: "Language code"
+                required: false
+                hint: "en_CA"
+                widget: "string"
+              - name: "image"
+                label: "Photo"
+                required: false
+                hint: "Upload a photo (JPG, under 2 MB) or paste a Cloudinary link."
+                widget: "image"
+              - name: "imageAlt"
+                label: "Picture description (for blind visitors and social apps)"
+                required: false
+                widget: "string"
           - name: "pages"
             label: "Pages"
             required: false
@@ -1212,3 +1240,12 @@ collections:
                 label: "Description"
                 required: false
                 widget: "text"
+              - name: "image"
+                label: "Photo"
+                required: false
+                hint: "Upload a photo (JPG, under 2 MB) or paste a Cloudinary link."
+                widget: "image"
+              - name: "imageAlt"
+                label: "Picture description (for blind visitors and social apps)"
+                required: false
+                widget: "string"

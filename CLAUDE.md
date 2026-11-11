@@ -18,6 +18,10 @@ site folder `/home3/irineashu/sankofaroyaleaward.ca`.
 - Design tokens: `tailwind.config.ts` (ink / carpet / gold / ivory, Bodoni Moda + Manrope). See brand-dna.md.
 - `.github/workflows/monitor.yml`: every 20 min checks the live site; if missing, rebuilds + re-uploads (lftp, no deletes) and opens an issue.
 
+## Share previews (11 Nov 2026)
+- `src/content/seo.json`: `site` (share defaults) + `pages` (title, description, optional `image`/`imageAlt`), including one entry per gallery album (`/gallery/<slug>`): add one when an album is added. Editable in both editors.
+- `scripts/social-pages.mjs` (inside `npm run build`): one static page per address (e.g. `out/tickets.html`, `out/gallery/gala-2025.html`) with its own title, description, canonical and picture, plus `sitemap.xml`. `src/lib/seo.ts` sets the same tags in the browser. `public/.htaccess` serves the per-page files with clean addresses (works for /preview/ too).
+
 ## Status (11 Nov 2026)
 - Live (DEPLOY_TARGET=production, set as a repo secret). Rebuilt 11 Nov: Readdy content removed, 225 real photos in 4 albums, both editors.
 - Old WordPress site was deleted from HostGator's Websites list on 10 Nov (no backup).

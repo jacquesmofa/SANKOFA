@@ -50,6 +50,9 @@ export const ENTRIES = [
 
 /** Friendly labels and help text, by field name (used wherever that name appears). */
 export const FIELD_HINTS = {
+  site: { label: 'Share preview defaults (Facebook, WhatsApp, LinkedIn, X)', description: 'Used for every page that has no picture of its own.' },
+  imageAlt: { label: 'Picture description (for blind visitors and social apps)' },
+  locale: { label: 'Language code', description: 'en_CA' },
   date: { label: 'Gala date', type: 'date', description: 'Leave empty until the date is confirmed.' },
   dateText: { label: 'Text shown when there is no date yet' },
   editionLabel: { label: 'Title of the next gala' },

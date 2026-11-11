@@ -1,44 +1,95 @@
 {
+  "site": {
+    "name": "Sankofa Royale Awards",
+    "url": "https://sankofaroyaleaward.ca",
+    "locale": "en_CA",
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,f_jpg,q_80/v1785312868/VIKI8632_iknjel.jpg",
+    "imageAlt": "Guests celebrating at the Sankofa Royale Awards & VVIP Gala in Brampton"
+  },
   "pages": [
     {
       "path": "/",
       "title": "Sankofa Royale Awards & VVIP Gala | Celebrating Black Excellence",
-      "description": "An annual awards gala in Brampton, Ontario honouring Black excellence and community leadership. Presented by CAWAP. Tickets, nominations and gallery."
+      "description": "An annual awards gala in Brampton, Ontario honouring Black excellence and community leadership. Presented by CAWAP. Tickets, nominations and gallery.",
+      "image": "",
+      "imageAlt": ""
     },
     {
       "path": "/award-night",
       "title": "The Gala Night | Sankofa Royale Awards",
-      "description": "Red carpet arrivals, African cuisine, live performances and the awards ceremony: what to expect at the Sankofa Royale Awards gala."
+      "description": "Red carpet arrivals, African cuisine, live performances and the awards ceremony: what to expect at the Sankofa Royale Awards gala.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785312817/VIKI7984_tqorrv.jpg",
+      "imageAlt": "Guests arriving on the red carpet at the Sankofa Royale Awards gala"
     },
     {
       "path": "/sankofa",
       "title": "What is Sankofa? | Sankofa Royale Awards",
-      "description": "The meaning of Sankofa, the Akan principle of returning to fetch what was left behind, and why it gives our awards their name."
+      "description": "The meaning of Sankofa, the Akan principle of returning to fetch what was left behind, and why it gives our awards their name.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785316115/sankofa-2023-2_cf9oxy.jpg",
+      "imageAlt": "Honourees in traditional attire before the Sankofa Royale stage"
     },
     {
       "path": "/nomination",
       "title": "Nominate an Outstanding Leader | Sankofa Royale Awards",
-      "description": "Nineteen award categories honouring community leaders, entrepreneurs, educators, humanitarians and youth. How to nominate someone."
+      "description": "Nineteen award categories honouring community leaders, entrepreneurs, educators, humanitarians and youth. How to nominate someone.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785313781/VIKI8846_drnuch.jpg",
+      "imageAlt": "An honouree receiving a Sankofa Royale Award on stage"
     },
     {
       "path": "/tickets",
       "title": "Tickets & Tables | Sankofa Royale Awards Gala",
-      "description": "Single tickets, VIP, VVIP and Platinum VVIP tables for the Sankofa Royale Awards gala. Reserve by WhatsApp, phone or email."
+      "description": "Single tickets, VIP, VVIP and Platinum VVIP tables for the Sankofa Royale Awards gala. Reserve by WhatsApp, phone or email.",
+      "image": "",
+      "imageAlt": ""
     },
     {
       "path": "/gallery",
       "title": "Gallery | Sankofa Royale Awards 2023–2025",
-      "description": "Photo albums from the Sankofa Royale Awards: the 2025 gala night and ceremony, 2024 nominees and the 2023 excellence awards."
+      "description": "Photo albums from the Sankofa Royale Awards: the 2025 gala night and ceremony, 2024 nominees and the 2023 excellence awards.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785316115/sankofa-2023-2_cf9oxy.jpg",
+      "imageAlt": "Honourees in traditional attire before the Sankofa Royale stage"
     },
     {
       "path": "/cawap",
       "title": "About CAWAP | Sankofa Royale Awards",
-      "description": "The Canadian and African Women Aid Program: the Brampton non-profit behind the Sankofa Royale Awards and its twelve service areas."
+      "description": "The Canadian and African Women Aid Program: the Brampton non-profit behind the Sankofa Royale Awards and its twelve service areas.",
+      "image": "",
+      "imageAlt": ""
     },
     {
       "path": "/contact",
       "title": "Contact & Sponsorship | Sankofa Royale Awards",
-      "description": "Contact the Sankofa Royale Awards team for tickets, nominations, sponsorship and media enquiries."
+      "description": "Contact the Sankofa Royale Awards team for tickets, nominations, sponsorship and media enquiries.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "path": "/gallery/gala-2025",
+      "title": "2025 The Gala Night | Sankofa Royale Awards Gallery",
+      "description": "Limousine arrivals, the red carpet, a candlelit dinner on gold chargers and an evening of celebration in Brampton.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785312817/VIKI7984_tqorrv.jpg",
+      "imageAlt": "2025 The Gala Night: The Power of Us"
+    },
+    {
+      "path": "/gallery/awards-2025",
+      "title": "2025 The Award Ceremony | Sankofa Royale Awards Gallery",
+      "description": "Honourees take the stage to receive their awards, surrounded by family, friends and community leaders.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785313781/VIKI8846_drnuch.jpg",
+      "imageAlt": "2025 The Award Ceremony: Celebrating the Past, Inspiring the Future"
+    },
+    {
+      "path": "/gallery/nominees-2024",
+      "title": "2024 Nominees & Honourees | Sankofa Royale Awards Gallery",
+      "description": "The 2024 nominee portraits: community builders, entrepreneurs, faith leaders, educators and humanitarians recognised across the award categories.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785316134/Nominees-2024-1_pcqv63.jpg",
+      "imageAlt": "2024 Nominees & Honourees: Be My Guest"
+    },
+    {
+      "path": "/gallery/gala-2023",
+      "title": "2023 The Excellence Awards | Sankofa Royale Awards Gallery",
+      "description": "Where it began: honourees in traditional splendour before the glowing Sankofa Royale stage.",
+      "image": "https://res.cloudinary.com/hxhakwbe/image/upload/c_fill,g_auto,w_1200,h_630,q_auto:good,f_jpg/v1785316115/sankofa-2023-2_cf9oxy.jpg",
+      "imageAlt": "2023 The Excellence Awards: Sankofa Royale Excellence Award"
     }
   ]
 }
