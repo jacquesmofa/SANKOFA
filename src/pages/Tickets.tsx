@@ -13,7 +13,7 @@ export default function Tickets() {
   const phone = site.contact.phones[0];
   return (
     <main>
-      <PageHero {...p.hero} imageAlt="Guests at a front-row table at the Sankofa Royale Awards">
+      <PageHero {...p.hero} imageAlt="A gala table set with gold chargers and fine wine">
         <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-ink hover:bg-gold-light">
           <MessageCircle className="h-4 w-4" /> {p.howToBuy.whatsappLabel}
         </a>

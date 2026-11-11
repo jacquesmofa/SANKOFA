@@ -279,7 +279,7 @@ function TicketsTeaser() {
 function GalleryTeaser() {
   const g = home.galleryTeaser;
   const albums = gallery.albums;
-  const layout = ["md:col-span-7 md:row-span-2", "md:col-span-5", "md:col-span-5", "md:col-span-12 lg:col-span-7"];
+  const layout = ["md:col-span-7 md:row-span-2", "md:col-span-5", "md:col-span-5"];
   return (
     <section className="bg-ink-2 py-24 md:py-32">
       <div className="mx-auto max-w-page px-5 md:px-8">
@@ -291,7 +291,7 @@ function GalleryTeaser() {
         </div>
         <div className="mt-14 grid auto-rows-[260px] gap-4 md:grid-cols-12 md:auto-rows-[280px]">
           {albums.slice(0, 3).map((a, i) => (
-            <Reveal key={a.slug} delay={i * 120} className={layout[i]}>
+            <Reveal key={a.slug} delay={i * 120} className={`h-full ${layout[i]}`}>
               <Link to={`/gallery/${a.slug}`} className="group relative block h-full overflow-hidden">
                 <Img src={a.cover} alt={`${a.year} ${a.title}`} widths={[480, 800, 1200]} ratio={i === 0 ? 1.1 : 0.62} sizes="(min-width: 768px) 55vw, 100vw" className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/20 to-transparent" />

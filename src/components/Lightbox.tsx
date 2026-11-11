@@ -61,8 +61,8 @@ export function Lightbox({ photos, index, title, onChange }: Props) {
           <X className="h-6 w-6" />
         </button>
       </div>
-      <div className="relative flex flex-1 items-center justify-center px-2 pb-6 md:px-20" onClick={(e) => e.target === e.currentTarget && onChange(null)}>
-        <img key={photos[index]} src={img(photos[index], { w: 1600 })} alt={`${title}, photo ${index + 1}`} className="max-h-full max-w-full animate-rise object-contain shadow-2xl" />
+      <div className="relative flex min-h-0 flex-1 items-center justify-center px-2 pb-6 md:px-20" onClick={(e) => e.target === e.currentTarget && onChange(null)}>
+        <img key={photos[index]} src={img(photos[index], { w: 1600 })} alt={`${title}, photo ${index + 1}`} className="max-h-[calc(100svh-96px)] max-w-full animate-rise object-contain shadow-2xl" />
         <button type="button" onClick={() => go(-1)} className="absolute left-2 top-1/2 -translate-y-1/2 border border-gold/40 bg-ink/70 p-3 text-gold-light hover:bg-gold hover:text-ink md:left-6" aria-label="Previous photo">
           <ChevronLeft className="h-6 w-6" />
         </button>
