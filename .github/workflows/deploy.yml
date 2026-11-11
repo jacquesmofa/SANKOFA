@@ -38,18 +38,21 @@ jobs:
 
       - name: 🎯 Decide where this goes
         id: target
+        env:
+          INPUT: ${{ github.event.inputs.target }}
+          CHOICE: ${{ vars.DEPLOY_TARGET || secrets.DEPLOY_TARGET || 'preview' }} # works as a Variable or a Secret
         run: |
-          T="${{ github.event.inputs.target }}"
-          if [ -z "$T" ] || [ "$T" = "default" ]; then T="${{ vars.DEPLOY_TARGET || 'preview' }}"; fi
+          T="$INPUT"
+          if [ -z "$T" ] || [ "$T" = "default" ]; then T="$CHOICE"; fi
+          T=$(echo "$T" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
           if [ "${{ github.event_name }}" = "pull_request" ]; then T="none"; fi
+          # outputs use short codes (live/pv) so GitHub never hides them as secret values
           case "$T" in
-            production) echo "base=/" >> "$GITHUB_OUTPUT"; echo "dir=./" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/" >> "$GITHUB_OUTPUT" ;;
-            preview)    echo "base=/preview/" >> "$GITHUB_OUTPUT"; echo "dir=./preview/" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/preview/" >> "$GITHUB_OUTPUT" ;;
-            none)       echo "base=/" >> "$GITHUB_OUTPUT" ;;
-            *) echo "::error::DEPLOY_TARGET must be preview or production (got '$T')"; exit 1 ;;
+            production|live) echo "mode=live" >> "$GITHUB_OUTPUT"; echo "base=/" >> "$GITHUB_OUTPUT"; echo "dir=./" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/" >> "$GITHUB_OUTPUT"; echo "### Target: LIVE site" >> "$GITHUB_STEP_SUMMARY" ;;
+            preview) echo "mode=pv" >> "$GITHUB_OUTPUT"; echo "base=/preview/" >> "$GITHUB_OUTPUT"; echo "dir=./preview/" >> "$GITHUB_OUTPUT"; echo "url=$SITE_URL/preview/" >> "$GITHUB_OUTPUT"; echo "### Target: preview" >> "$GITHUB_STEP_SUMMARY" ;;
+            none) echo "mode=none" >> "$GITHUB_OUTPUT"; echo "base=/" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::DEPLOY_TARGET must be preview or production"; exit 1 ;;
           esac
-          echo "target=$T" >> "$GITHUB_OUTPUT"
-          echo "### Target: \`$T\`" >> "$GITHUB_STEP_SUMMARY"
 
       - name: 🏗️ Setup Node.js
         uses: actions/setup-node@v5
@@ -66,7 +69,7 @@ jobs:
         run: npm run build
 
       - name: 🙈 Preview only — point routing at /preview/ and hide it from Google
-        if: steps.target.outputs.target == 'preview'
+        if: steps.target.outputs.mode == 'pv'
         run: |
           sed -i 's#RewriteBase /#RewriteBase /preview/#; s#RewriteRule \^ /index.html#RewriteRule ^ /preview/index.html#' out/.htaccess
           printf '\n<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n' >> out/.htaccess
@@ -74,7 +77,7 @@ jobs:
 
       - name: 🔐 Check FTP secrets are set
         id: secrets
-        if: steps.target.outputs.target != 'none'
+        if: steps.target.outputs.mode != 'none'
         env:
           S: ${{ secrets.FTP_SERVER }}
           U: ${{ secrets.FTP_USERNAME }}
