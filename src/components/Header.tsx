@@ -20,9 +20,14 @@ export function Header() {
   }, [pathname]);
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || open ? "border-b border-ink-line/70 bg-ink/90 backdrop-blur-md" : "bg-gradient-to-b from-ink/80 to-transparent"
@@ -73,10 +78,13 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
+      {/* The phone menu sits outside the header: the header's blur effect would otherwise trap it
+          inside the 76px bar (a blurred parent becomes the frame for "fixed" children). */}
       <div
         id="mobile-menu"
-        className={`fixed inset-x-0 bottom-0 top-[76px] overflow-y-auto bg-ink transition-all duration-500 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-[76px] z-40 overflow-y-auto bg-ink transition-all duration-500 lg:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
@@ -86,6 +94,7 @@ export function Header() {
               key={item.to + i}
               to={item.to}
               end={item.to === "/"}
+              onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `border-b border-ink-line py-4 font-display text-2xl ${isActive ? "text-gold" : "text-ivory"}`
               }
@@ -96,6 +105,6 @@ export function Header() {
           <p className="mt-8 text-sm text-ivory-muted">{site.presentedBy}</p>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
