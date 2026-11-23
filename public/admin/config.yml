@@ -123,6 +123,11 @@ collections:
                   label: "Item"
                   required: false
                   widget: "image"
+              - name: "video"
+                label: "Hero film (Cloudinary .mp4 address)"
+                required: false
+                hint: "Plays silently in a loop behind the title. Leave empty to show the photos instead."
+                widget: "image"
           - name: "ribbon"
             label: "Words in the red scrolling ribbon"
             required: false
@@ -132,6 +137,53 @@ collections:
               label: "Item"
               required: false
               widget: "string"
+          - name: "nomineesFilm"
+            label: "Nominees film (Mux)"
+            required: false
+            widget: "object"
+            fields:
+              - name: "eyebrow"
+                label: "Small gold line above the heading"
+                required: false
+                widget: "string"
+              - name: "heading"
+                label: "Heading"
+                required: false
+                widget: "string"
+              - name: "body"
+                label: "Text"
+                required: false
+                hint: "Leave an empty line between paragraphs."
+                widget: "text"
+              - name: "playbackId"
+                label: "Mux Playback ID"
+                required: false
+                hint: "The public Playback ID from Mux (Playback and Thumbnails). Never the Asset ID."
+                widget: "string"
+              - name: "title"
+                label: "Title"
+                required: false
+                widget: "string"
+              - name: "posterTime"
+                label: "Cover picture: second of the film to show"
+                required: false
+                widget: "number"
+              - name: "duration"
+                label: "Duration"
+                required: false
+                widget: "string"
+              - name: "buttonLabel"
+                label: "Button label"
+                required: false
+                widget: "string"
+              - name: "linkLabel"
+                label: "Link label"
+                required: false
+                widget: "string"
+              - name: "linkTo"
+                label: "Link to"
+                required: false
+                widget: "string"
           - name: "story"
             label: "Story"
             required: false

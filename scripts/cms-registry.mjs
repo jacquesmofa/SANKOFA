@@ -50,6 +50,11 @@ export const ENTRIES = [
 
 /** Friendly labels and help text, by field name (used wherever that name appears). */
 export const FIELD_HINTS = {
+  video: { label: 'Hero film (Cloudinary .mp4 address)', description: 'Plays silently in a loop behind the title. Leave empty to show the photos instead.' },
+  nomineesFilm: { label: 'Nominees film (Mux)' },
+  playbackId: { label: 'Mux Playback ID', description: 'The public Playback ID from Mux (Playback and Thumbnails). Never the Asset ID.' },
+  posterTime: { label: 'Cover picture: second of the film to show' },
+
   site: { label: 'Share preview defaults (Facebook, WhatsApp, LinkedIn, X)', description: 'Used for every page that has no picture of its own.' },
   imageAlt: { label: 'Picture description (for blind visitors and social apps)' },
   locale: { label: 'Language code', description: 'en_CA' },

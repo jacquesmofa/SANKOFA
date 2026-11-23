@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Play } from "lucide-react";
 import { event, formatDate, gallery, home, nomination, tickets, upcomingDate } from "@/lib/content";
 import { img } from "@/lib/media";
 import { usePageMeta } from "@/lib/seo";
@@ -15,16 +15,34 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI"];
 
+/** Cloudinary video at a light, phone-friendly weight; the cover picture is the clip's first second. */
+const heroClip = (url: string, w: number) => url.replace("/video/upload/", `/video/upload/q_auto:eco,vc_auto,w_${w},c_limit/`);
+const heroPoster = (url: string) => url.replace("/video/upload/", "/video/upload/so_1,q_auto,f_jpg,w_1600,c_limit/").replace(/\.(mp4|mov|webm)$/i, ".jpg");
+
+/** The film plays only when the visitor has not asked for less motion or less data; otherwise the photos play. */
+function useHeroVideo(src?: string) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (!src) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    setOn(!reduce && !saveData);
+  }, [src]);
+  return on;
+}
+
 function Hero() {
   const { hero } = home;
   const [slide, setSlide] = useState(0);
   const date = upcomingDate();
+  const video = (hero as { video?: string }).video;
+  const playVideo = useHeroVideo(video);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (playVideo || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => setSlide((s) => (s + 1) % hero.slides.length), 7000);
     return () => window.clearInterval(id);
-  }, [hero.slides.length]);
+  }, [hero.slides.length, playVideo]);
 
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink">
@@ -41,6 +59,21 @@ function Hero() {
           />
         </div>
       ))}
+      {playVideo && video && (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={heroPoster(video)}
+          aria-hidden="true"
+        >
+          <source src={heroClip(video, 720)} type="video/mp4" media="(max-width: 767px)" />
+          <source src={heroClip(video, 960)} type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
 
@@ -77,7 +110,7 @@ function Hero() {
         </aside>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 gap-2 lg:flex" role="tablist" aria-label="Hero photos">
+      <div className={`absolute bottom-6 left-1/2 hidden -translate-x-1/2 gap-2 ${playVideo ? "" : "lg:flex"}`} role="tablist" aria-label="Hero photos">
         {hero.slides.map((_, i) => (
           <button
             key={i}
@@ -107,6 +140,61 @@ function Ribbon() {
         ))}
       </div>
     </div>
+  );
+}
+
+/** The nominees' film (Mux). A cover picture with a play button; the player loads only when pressed. */
+function NomineesFilm() {
+  const f = (home as unknown as { nomineesFilm?: { eyebrow: string; heading: string; body: string; playbackId: string; title: string; posterTime?: number; duration?: string; buttonLabel: string; linkLabel?: string; linkTo?: string } }).nomineesFilm;
+  const [playing, setPlaying] = useState(false);
+  if (!f?.playbackId) return null;
+  const poster = (w: number) => `https://image.mux.com/${f.playbackId}/thumbnail.webp?time=${f.posterTime ?? 4}&width=${w}`;
+  return (
+    <section className="bg-ink py-20 md:py-28">
+      <div className="mx-auto grid max-w-page items-center gap-12 px-5 md:px-8 lg:grid-cols-12 lg:gap-16">
+        <Reveal className="lg:col-span-4">
+          <SectionHeading eyebrow={f.eyebrow} heading={f.heading} body={f.body} />
+          {f.linkLabel && f.linkTo && (
+            <Link to={f.linkTo} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-label text-gold hover:text-gold-light">
+              {f.linkLabel} <ArrowRight className="h-4 w-4" />
+            </Link>
+          )}
+        </Reveal>
+        <Reveal className="relative lg:col-span-8" delay={150}>
+          <div className="absolute -right-4 -top-4 hidden h-full w-full border border-gold/40 md:block" aria-hidden="true" />
+          <div className="relative aspect-video w-full overflow-hidden bg-black shadow-2xl">
+            {playing ? (
+              <iframe
+                src={`https://player.mux.com/${f.playbackId}?autoplay=true&accent-color=%23c9a24a&metadata-video-title=${encodeURIComponent(f.title)}`}
+                title={f.title}
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+              />
+            ) : (
+              <button type="button" onClick={() => setPlaying(true)} className="group absolute inset-0 h-full w-full cursor-pointer" aria-label={`${f.buttonLabel}: ${f.title}${f.duration ? ` (${f.duration})` : ""}`}>
+                <img
+                  src={poster(1280)}
+                  srcSet={[640, 960, 1280, 1920].map((w) => `${poster(w)} ${w}w`).join(", ")}
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  alt=""
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <span className="absolute inset-0 bg-ink/30 transition-colors group-hover:bg-ink/15" />
+                <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-gold bg-ink/70 text-gold backdrop-blur-sm transition-transform group-hover:scale-110 md:h-24 md:w-24">
+                  <Play className="ml-1 h-8 w-8 fill-current md:h-10 md:w-10" />
+                </span>
+                <span className="absolute bottom-4 left-4 flex items-center gap-3 bg-ink/80 px-4 py-2 text-left text-sm text-ivory backdrop-blur-sm">
+                  <span className="font-semibold uppercase tracking-label text-gold">{f.buttonLabel}</span>
+                  {f.duration && <span className="text-ivory/70">{f.duration}</span>}
+                </span>
+              </button>
+            )}
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
@@ -315,6 +403,7 @@ export default function Home() {
     <main>
       <Hero />
       <Ribbon />
+      <NomineesFilm />
       <Story />
       <Experience />
       <Timeline />

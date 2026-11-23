@@ -7,12 +7,13 @@
     "primaryLabel": "Reserve a Seat",
     "secondaryLabel": "Nominate a Leader",
     "slides": [
-      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313831/VIKI8740_s0ie1h.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400147/VIKI8740_Custom_j4mbkz.jpg",
       "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316125/sankofa-2023-15_oeqz3b.jpg",
-      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312876/VIKI8741_ugimyk.jpg",
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400147/VIKI8741_Custom_hh5yaf.jpg",
       "https://res.cloudinary.com/hxhakwbe/image/upload/v1785316130/sankofa-2023-22_soi8fo.jpg",
-      "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312868/VIKI8632_iknjel.jpg"
-    ]
+      "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400138/VIKI8632_Custom_lsefup.jpg"
+    ],
+    "video": "https://res.cloudinary.com/hxhakwbe/video/upload/v1795390699/Sankofa_Hero_Video_wmxqwz.mp4"
   },
   "ribbon": [
     "Celebrating the Past",
@@ -21,6 +22,18 @@
     "Black Excellence",
     "Sankofa"
   ],
+  "nomineesFilm": {
+    "eyebrow": "Sankofa Royale Awards 2026",
+    "heading": "Meet the 2026 nominees",
+    "body": "Leaders, builders, advocates and volunteers, each recognised by the community they serve. Watch the film that introduces every nominee and the categories they are honoured in.",
+    "playbackId": "UoRBF2kGpR01ZJsNVOwCZ1nwQjkpMd02jHjMi01L1nxbAE",
+    "title": "The 2026 nominees of the Sankofa Royale Awards",
+    "posterTime": 4,
+    "duration": "4:53",
+    "buttonLabel": "Play the film",
+    "linkLabel": "Nominate a leader",
+    "linkTo": "/nomination"
+  },
   "story": {
     "eyebrow": "Our Purpose",
     "heading": "Recognition our community has waited for",
@@ -39,8 +52,8 @@
         "text": "Proceeds support CAWAP's programs for women, youth, seniors and families."
       }
     ],
-    "imageLarge": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312811/VIKI7918_1_twgwd8.jpg",
-    "imageSmall": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312824/VIKI8029_xlixys.jpg",
+    "imageLarge": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400203/VIKI7918_1_Custom_skpxkh.jpg",
+    "imageSmall": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400209/VIKI8029_Custom_trimjh.jpg",
     "quote": "It is not taboo to go back and fetch what you forgot.",
     "quoteSource": "The Akan proverb behind Sankofa"
   },
@@ -51,22 +64,22 @@
       {
         "title": "The Red Carpet",
         "text": "Guests arrive in style and walk a red carpet lined with cameras, music and applause.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312775/VIKI7478_elddoi.jpg"
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400189/VIKI7478_Custom_rctbdf.jpg"
       },
       {
         "title": "African Fine Dining",
         "text": "A curated dinner celebrating the flavours of the continent, served on gold.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312780/VIKI7548_f4zrym.jpg"
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400191/VIKI7548_Custom_enrjtj.jpg"
       },
       {
         "title": "The Awards",
         "text": "Honourees take the stage to receive the Sankofa Royale Award before the whole community.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312824/VIKI8029_xlixys.jpg"
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400209/VIKI8029_Custom_trimjh.jpg"
       },
       {
         "title": "The Paparazzi Experience",
         "text": "Professional photographers capture every arrival, embrace and triumphant moment.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785313807/VIKI8766_dxhh0i.jpg"
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400147/VIKI8766_Custom_zjg2wp.jpg"
       }
     ]
   },
@@ -92,14 +105,14 @@
         "year": "2025",
         "title": "The Power of Us",
         "text": "Limousine arrivals, a full ceremony and a celebration of the past that inspires the future.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312840/VIKI8147_j2fisc.jpg",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400218/VIKI8147_Custom_qwguun.jpg",
         "link": "/gallery/gala-2025"
       },
       {
         "year": "Next",
         "title": "Your story",
         "text": "Nominations and tables for the next edition open soon. Be part of the next chapter.",
-        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312876/VIKI8741_ugimyk.jpg",
+        "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400147/VIKI8741_Custom_hh5yaf.jpg",
         "link": "/tickets"
       }
     ]
@@ -127,6 +140,6 @@
     "body": "Join community leaders, families, entrepreneurs and friends for an unforgettable evening of honour and celebration. Seats are limited and tables sell out early.",
     "primaryLabel": "Reserve a Seat",
     "secondaryLabel": "Become a Sponsor",
-    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1785312888/VIKI8912_1_ad9cvo.jpg"
+    "image": "https://res.cloudinary.com/hxhakwbe/image/upload/v1795400160/VIKI8912_1_Custom_lycgx4.jpg"
   }
 }

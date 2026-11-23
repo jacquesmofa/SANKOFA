@@ -27,3 +27,8 @@ site folder `/home3/irineashu/sankofaroyaleaward.ca`.
 - Old WordPress site was deleted from HostGator's Websites list on 10 Nov (no backup).
 - Next gala date unknown: `event.json` date empty → "Date to be announced". Open questions in PLACEHOLDERS.md.
 - No prerendering yet (pages render in the browser; titles/descriptions set per page).
+
+## 2025 photos and home videos (22 Nov 2026)
+- All 2025 photos are the optimized "_Custom" uploads (cloud hxhakwbe). `gala-2025` 167 photos (arrivals, portraits, dinner), `awards-2025` 113 (on stage), in camera-number order. VIKI8668_Custom is a damaged upload (grey below the top strip): not used; re-upload it to add it.
+- Home hero: `home.json > hero.video` (Cloudinary mp4) plays muted in a loop behind the title (q_auto:eco, 720 px on phones, 960 px otherwise). Visitors with reduced motion or data saver get the photo slides.
+- Home `nomineesFilm` (after the ribbon): Mux Playback ID (public, never the Asset ID), cover picture from image.mux.com, player.mux.com loads only when pressed.
