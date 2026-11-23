@@ -74,10 +74,11 @@ function Hero() {
           <source src={heroClip(video, 960)} type="video/mp4" />
         </video>
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+      {/* Light shading only where the text sits; the film stays clear */}
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/70 to-transparent" />
 
-      <div className="relative mx-auto grid w-full max-w-page gap-10 px-5 pb-16 pt-32 md:px-8 lg:grid-cols-12 lg:items-end lg:pb-24">
+      <div className="relative mx-auto grid w-full max-w-page gap-10 px-5 pb-16 pt-32 [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] md:px-8 lg:grid-cols-12 lg:items-end lg:pb-24">
         <div className="lg:col-span-8">
           <Eyebrow className="animate-rise">{hero.eyebrow}</Eyebrow>
           <h1 className="mt-6 animate-rise font-display leading-[0.92] text-ivory [animation-delay:120ms]">
@@ -93,7 +94,7 @@ function Hero() {
           </div>
         </div>
 
-        <aside className="animate-rise border-l-2 border-carpet bg-ink/70 p-6 backdrop-blur-md [animation-delay:480ms] lg:col-span-4">
+        <aside className="animate-rise border-l-2 border-carpet bg-ink/45 p-6 backdrop-blur-[2px] [animation-delay:480ms] lg:col-span-4">
           <p className="text-[11px] font-semibold uppercase tracking-label text-gold">{event.editionLabel}</p>
           <p className="mt-3 font-display text-2xl text-ivory">{date ? formatDate(event.date) : event.dateText}</p>
           <p className="mt-1 text-sm text-ivory-muted">
